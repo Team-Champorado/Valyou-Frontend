@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --app-height: 100dvh;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+}
+
+/* Memphis geometric background shapes */
+.valyou-gradient-text {
+  background: linear-gradient(90deg, #1569ca 0%, #1569ca 46%, #ffc005 56%, #ffb703 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.memphis-circle-blue {
+  background: radial-gradient(circle, rgba(127, 208, 226, 0.4) 0%, rgba(212, 238, 245, 0.15) 70%, transparent 100%);
+}
+
+.memphis-circle-yellow {
+  background: radial-gradient(circle, rgba(255, 192, 5, 0.35) 0%, rgba(255, 244, 204, 0.2) 70%, transparent 100%);
+}
+
+.memphis-circle-orange {
+  background: radial-gradient(circle, rgba(255, 132, 1, 0.3) 0%, rgba(255, 228, 204, 0.15) 70%, transparent 100%);
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 234, 239, 0.8);
+}
+
+.glass-panel-dark {
+  background: rgba(26, 43, 60, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4eef5;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7fd0e2;
+}
+
+/* Ensure Leaflet map z-index behaves nicely with modals and sticky headers */
+.leaflet-pane {
+  z-index: 10 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 20 !important;
+}
