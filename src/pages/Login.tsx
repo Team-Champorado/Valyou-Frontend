@@ -12,7 +12,8 @@ import {
   Eye, 
   EyeOff, 
   CheckCircle2, 
-  AlertCircle
+  AlertCircle,
+  Sparkles
 } from 'lucide-react';
 
 export const Login: React.FC = () => {
@@ -98,6 +99,14 @@ export const Login: React.FC = () => {
     } else {
       setError(result.error || 'Registration failed. User may already exist.');
     }
+  };
+
+  const fillDemoAccount = () => {
+    setTab('signin');
+    setEmail('demo@valyou.com');
+    setPassword('demo123');
+    setError(null);
+    setSuccessMsg('Filled demo appraiser credentials. Click "Sign In" below!');
   };
 
   return (
@@ -363,6 +372,32 @@ export const Login: React.FC = () => {
             </button>
           </form>
         )}
+
+        {/* Quick Demo Account Action */}
+        <div className="mt-6 pt-5 border-t border-border-light">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-text-muted text-center mb-2.5">
+            Quick Demo Access
+          </p>
+          <button
+            type="button"
+            onClick={fillDemoAccount}
+            className="w-full py-2.5 px-4 bg-primary-pastel hover:bg-primary-pastel/80 text-primary border border-primary/20 rounded-2xl text-xs font-bold flex items-center justify-between active:scale-[0.99] transition-all cursor-pointer group shadow-xs"
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <Sparkles size={14} />
+              </span>
+              <div className="text-left">
+                <span className="font-extrabold block text-xs">Demo Appraiser</span>
+                <span className="text-[11px] text-text-secondary font-medium font-mono">demo@valyou.com</span>
+              </div>
+            </div>
+            <span className="text-[11px] font-bold text-primary flex items-center gap-1 group-hover:translate-x-0.5 transition-transform shrink-0">
+              Auto Fill
+              <ArrowRight size={13} />
+            </span>
+          </button>
+        </div>
 
       </div>
 
